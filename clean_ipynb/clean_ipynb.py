@@ -14,7 +14,7 @@ def main():
                      '--remove-all-unused-imports',
                      '--expand-star-imports', str(py_file)])
 
-    subprocess.call(['autopep8', '--in-place', str(py_file)])
+    subprocess.call(['autopep8', '--in-place', '--max-line-length', '120',  str(py_file)])
     subprocess.call(['importanize', str(py_file)])
     subprocess.call(['jupytext', '--to', 'notebook', str(py_file)])
     print("cleaning up")
